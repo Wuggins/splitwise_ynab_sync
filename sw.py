@@ -102,8 +102,8 @@ class SW():
                         user_names.append(user_first_name)
             if is_append:      # check category instead of description
                 tracked_expense['users'] = user_names
-                owed_expenses.append(tracked_expense)
-        return owed_expenses
+                return_expenses.append(tracked_expense)
+        return return_expenses
     
     def create_expense(self, expense):
         e = Expense()
