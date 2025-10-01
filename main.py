@@ -27,7 +27,7 @@ class ynab_splitwise_transfer():
     def sw_to_ynab(self):
         self.logger.info("Moving transactions from Splitwise to YNAB...")
         self.logger.info(f"Getting all Splitwise expenses from {self.sw_start_date} to {self.end_date}")
-        expenses = self.sw.get_expenses(updated_after=self.sw_start_date, updated_before=self.end_date)
+        expenses = self.sw.get_expenses_overall(updated_after=self.sw_start_date, updated_before=self.end_date)
 
         if expenses:
             # process
@@ -39,7 +39,7 @@ class ynab_splitwise_transfer():
                 transaction = {
                                 "account_id": self.ynab_account_id,
                                 "date":expense['date'],
-                                "amount":-int(expense['owed']*1000),
+                                "amount":-int(expense['cost']*1000),
                                 "memo":" ".join([expense['description'].strip() ,"with", combine_names(expense['users'])]),
                                 "cleared": "cleared"
                             }
@@ -174,4 +174,4 @@ if __name__=="__main__":
 
     # splitwise to ynab
     a.sw_to_ynab()
-    a.ynab_to_sw()
+    # a.ynab_to_sw()
