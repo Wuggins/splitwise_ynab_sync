@@ -85,14 +85,14 @@ class SW():
                     paid = float(user.getPaidShare())
                     description = expense.getDescription()
                     if description.strip() != 'Payment':
-                        owed_expense['owed'] = float(user.getOwedShare())
-                        owed_expense['date'] = expense.getDate()
-                        owed_expense['created_time'] = expense.getCreatedAt()
-                        owed_expense['updated_time'] = expense.getUpdatedAt()
-                        owed_expense['deleted_time'] = expense.getDeletedAt()
-                        owed_expense['description'] = description
-                        owed_expense['repeat'] = expense.isRepeat()
-                        owed_expense['cost'] = expense_cost
+                        tracked_expense['owed'] = float(user.getOwedShare())
+                        tracked_expense['date'] = expense.getDate()
+                        tracked_expense['created_time'] = expense.getCreatedAt()
+                        tracked_expense['updated_time'] = expense.getUpdatedAt()
+                        tracked_expense['deleted_time'] = expense.getDeletedAt()
+                        tracked_expense['description'] = description
+                        tracked_expense['repeat'] = expense.isRepeat()
+                        tracked_expense['cost'] = expense_cost
                         is_append = True
                 else:       # get user names other than current_user
                     paid_share = float(user.getPaidShare())
@@ -101,8 +101,8 @@ class SW():
                     else:
                         user_names.append(user_first_name)
             if is_append:      # check category instead of description
-                owed_expense['users'] = user_names
-                owed_expenses.append(owed_expense)
+                tracked_expense['users'] = user_names
+                owed_expenses.append(tracked_expense)
         return owed_expenses
     
     def create_expense(self, expense):
