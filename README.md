@@ -11,6 +11,7 @@ That said, I would to mention my workflow:
 - In addition to a 'Splitwise' account, I also create a 'Splitwise' category. I place this in a 'Don't count' group as it helps in the reports.
 - Expenses paid by me: I split the expense between a category corrsponding to the expense and the 'Splitwise' category.
 - Expenses paid by others: I add my share as an expense under 'Splitwise' account and the corresponding category.
+- 
 
 ## Which transactions are imported?
 The code imports all the **transactions for which you owe money**.
