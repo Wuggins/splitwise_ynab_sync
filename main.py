@@ -6,6 +6,7 @@ from sw import SW
 from ynab import YNABClient
 from utils import setup_environment_vars, combine_names
 
+
 class ynab_splitwise_transfer():
     def __init__(self, sw_consumer_key, sw_consumer_secret,sw_api_key, 
                     ynab_personal_access_token, ynab_budget_name, ynab_account_name) -> None:
